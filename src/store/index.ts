@@ -3,12 +3,11 @@ import data from "../api";
 
 const store = reactive({
   movies: data.movies,
-  favorites: ([] as Movie[]),
-  addFavorite(movie: Movie) {
-    this.favorites.push(movie)
-  },
-  removeFavorite(movie: Movie) {
-    this.favorites.splice(this.favorites.indexOf(movie), 1)
+  toggleFavorite(id: number) {
+    const movie = this.movies.find(movie => movie.id === id);
+    if (movie) {
+      movie.favorited = !movie.favorited;
+    }
   },
   increment() {
     this.count++
