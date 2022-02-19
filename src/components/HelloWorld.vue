@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import store from '../store'
 import Card from './Card.vue'
+import FavoritesList from './FavoritesList.vue';
 defineProps<{ msg: string }>()
 
 const count = ref(0)
@@ -9,34 +10,18 @@ const count = ref(0)
 
 <template>
   <h1>{{ msg }}</h1>
-  <h2>{{store.movies}}</h2>
-  <Card msg="fjfjfj" :movie="store.movies[0]"></Card>
-  <p>
-    Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
-    +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-  </p>
-
-  <p>See <code>README.md</code> for more information.</p>
-
-  <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">
-      Vite Docs
-    </a>
-    |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
-  </p>
-
-  <button type="button" @click="store.decrement">-count is: {{ store.count }}</button>
-  <button type="button" @click="store.increment">+count is: {{ store.count }}</button>
-  <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
+  <FavoritesList />
+  <div class="gallery" v-for="movie in store.movies">
+  <Card :movie="movie" />
+  </div>
 </template>
 
 <style scoped>
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1em;
+}
 a {
   color: #42b983;
 }
