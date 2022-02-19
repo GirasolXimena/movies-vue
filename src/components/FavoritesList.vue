@@ -9,7 +9,7 @@ import store from '../store'
   <ul class="gallery favorites" v-for="movie in store.movies.filter(movie => movie.favorited)">
     <li :id="String(movie.id)">
       <h3>{{movie.title}}</h3>
-      <img :src="movie.img" :alt="movie.imgAlt">
+      <!-- <img :src="movie.img" :alt="movie.imgAlt"> -->
       <button @click="store.toggleFavorite(movie.id)">{{movie.favorited ? 'remove' : 'add'}} favorite</button>
     </li>
   </ul>
@@ -17,6 +17,10 @@ import store from '../store'
 </template>
 
 <style scoped>
+li {
+  display: grid;
+  grid-auto-flow: column;
+}
 img {
   max-width: 100%;
 }

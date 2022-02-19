@@ -10,10 +10,10 @@ const count = ref(0)
 
 <template>
   <h1>{{ msg }}</h1>
-  <FavoritesList />
-  <div class="gallery" v-for="movie in store.movies">
-  <Card :movie="movie" />
+  <div class="gallery">
+    <Card v-for="movie in store.movies" :key="movie.id" :movie="movie" />
   </div>
+    <FavoritesList />
 </template>
 
 <style scoped>
