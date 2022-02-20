@@ -57,4 +57,7 @@ export default defineComponent({
 .fade-leave-to {
   opacity: 0;
 }
+a {
+  color: #42b983;
+}
 </style>

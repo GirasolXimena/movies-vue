@@ -50,9 +50,6 @@ const props = defineProps<{
 img {
   max-width: 100%;
 }
-a {
-  color: #42b983;
-}
 
 label {
   margin: 0 0.5em;

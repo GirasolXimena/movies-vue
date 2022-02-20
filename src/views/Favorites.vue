@@ -22,9 +22,6 @@ import FavoritesList from '../components/FavoritesList.vue';
   flex-wrap: wrap;
   justify-content: space-around;
 }
-a {
-  color: #42b983;
-}
 
 label {
   margin: 0 0.5em;
