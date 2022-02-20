@@ -20,17 +20,18 @@ defineProps<{
 <style scoped>
 .thumb {
   width: 360px;
+  max-width: 100%;
   height: 202px;
   object-fit: cover;
 }
-.item:hover .tile {
+.item:hover .tile, .item:focus .tile {
   opacity: 1;
+  background-color: rgba(16, 26, 150, 0.66);
 }
 .tile {
   transition: var(--transition);
+  background-color: rgba(16, 26, 150, 0.33);
   position: absolute;
-  background: var(--gradient);
-  opacity: 0;
   height: 100%;
   height: 202px;
   width: 100%;

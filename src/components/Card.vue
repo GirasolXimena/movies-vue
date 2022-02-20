@@ -20,12 +20,11 @@ const props = defineProps<{
   background-size: cover;
   background-position: center;
   color: var(--tertiary);
-  height:380px;
   width: 320px;
   display: grid;
-  grid-template-rows: 33% 50% 1fr;
+  grid-template-rows: 1fr max-content 1fr;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   justify-content: space-between;
   padding: 2em;
 }

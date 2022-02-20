@@ -27,12 +27,16 @@ import Button from '../components/Button.vue';
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.card {
+  margin: 1em 0.5em;
+}
 .favorites {
   padding: 0;
 }
 .favorite {
   display: flex;
   align-items: baseline;
+  flex-wrap: wrap;
 }
 button {
   align-self: center;

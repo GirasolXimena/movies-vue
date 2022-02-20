@@ -20,6 +20,7 @@ import FavoritesCard from './FavoritesCard.vue';
 <style scoped>
 .gallery {
   display: flex;
+  flex-wrap: wrap;
 }
 .item {
   position: relative;
