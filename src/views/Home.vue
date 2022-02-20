@@ -14,7 +14,7 @@ import Button from '../components/Button.vue';
     <TransitionGroup name="favorites" class="favorites" tag="ol">
       <li class="favorite" v-for="movie in store.favorites" :key="movie.id">
         <Button :id="movie.id" :favorited="movie.favorited" />
-        <h5>{{ movie.title }}</h5>
+        <h3>{{ movie.title }}</h3>
         <p>{{ movie.shortDescription }}</p>
       </li>
     </TransitionGroup>
@@ -27,11 +27,24 @@ import Button from '../components/Button.vue';
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.favorites {
+  padding: 0;
+}
 .favorite {
   display: flex;
   align-items: baseline;
 }
+button {
+  align-self: center;
+}
+.favorite:nth-child(odd) {
+  background-color: var(--secondary);
+}
 .favorite * {
   margin: 0.5em 0.5em;
+}
+.favorite h3 {
+  font-weight: bolder;
+  font-size: 1.5em;
 }
 </style>

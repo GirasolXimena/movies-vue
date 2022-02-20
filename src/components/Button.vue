@@ -12,7 +12,6 @@ defineProps<{
 
 <style scoped>
 .toggle {
-  align-self: start;
   width: min-content;
   color: var(--tertiary);
   border: 1px solid var(--tertiary);

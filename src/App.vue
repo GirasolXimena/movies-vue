@@ -47,7 +47,7 @@ export default defineComponent({
   --primary : rgba(16, 26, 150, 1);
   --secondary : rgba(16, 26, 150, 0.15);
   --tertiary: rgba(255,255,255,1);
-  --link-color: #42b983;
+  --link-color: var(--primary);
   --transition: all 0.5s ease;
   --gradient: linear-gradient(
     90deg,
@@ -63,6 +63,9 @@ a {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin-top: 60px;
+}
+a {
+  font-size: 1.25em;
 }
 .fade-enter-active,
 .fade-leave-active,
