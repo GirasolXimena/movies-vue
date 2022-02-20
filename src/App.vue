@@ -58,6 +58,9 @@ export default defineComponent({
 a {
   color: var(--link-color);
 }
+html {
+  background-color: var(--secondary);
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
