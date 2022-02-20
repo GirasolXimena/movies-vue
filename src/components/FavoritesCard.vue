@@ -39,5 +39,7 @@ defineProps<{
   height: 100%;
   height: 202px;
   width: 100%;
+  display: grid;
+  place-content: center;
 }
 </style>
