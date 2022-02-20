@@ -1,42 +1,44 @@
 <script setup lang="ts">
 import store from '../store'
-
+import FavoritesCard from './FavoritesCard.vue';
 </script>
 
 <template>
-<div class="favorites-list">
-  <h1>Favorites</h1>
-  <ul class="gallery favorites" v-for="movie in store.movies.filter(movie => movie.favorited)">
-    <li :id="String(movie.id)">
-      <h3>{{movie.title}}</h3>
-      <!-- <img :src="movie.img" :alt="movie.imgAlt"> -->
-      <button @click="store.toggleFavorite(movie.id)">{{movie.favorited ? 'remove' : 'add'}} favorite</button>
-    </li>
-  </ul>
-</div>
+  <div class="favorites-list">
+    <h5>favorites</h5>
+    <TransitionGroup name="favorites" tag="ol" class="gallery favorites">
+      <li
+        class="item"
+        v-for="movie in store.favorites"
+        :key="movie.id"
+      >
+        <FavoritesCard :id="movie.id" :img="movie.img" :img-alt="movie.imgAlt" :title="movie.title" :favorited="movie.favorited" />
+      </li>
+    </TransitionGroup>
+  </div>
 </template>
 
 <style scoped>
-li {
-  display: grid;
-  grid-auto-flow: column;
+.gallery {
+  display: flex;
 }
-img {
-  max-width: 100%;
+.thumb {
+  width: 360px;
+  height: 202px;
+  object-fit: cover;
 }
-a {
-  color: #42b983;
-}
-
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
+.item {
+  position: relative;
+  margin: 2em;
 }
 
-code {
-  background-color: #eee;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: #304455;
+.favorites-enter-active,
+.favorites-leave-active {
+  transition: all 0.5s ease;
+}
+.favorites-enter-from,
+.favorites-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
 }
 </style>
