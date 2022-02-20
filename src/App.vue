@@ -7,11 +7,11 @@ import { defineComponent } from 'vue'
 interface Routes {
   [key: string]: typeof NotFound
   '/': typeof Home
-  '/about': typeof Favorites
+  '/favorites': typeof Favorites
 }
 const routes: Routes = {
   '/': Home,
-  '/about': Favorites
+  '/favorites': Favorites
 }
 
 
@@ -28,17 +28,16 @@ export default defineComponent({
   },
   mounted() {
     window.addEventListener('hashchange', () => {
-		  this.currentPath = window.location.hash
-		})
+      this.currentPath = window.location.hash
+    })
   }
 })
 </script>
 
 <template>
   <a href="#/">Home</a> |
-  <a href="#/about">About</a> |
-  <a href="#/non-existent-path">Broken Link</a>
-   <Transition name="fade" mode="out-in" appear>
+  <a href="#/favorites">My Favorites</a>
+  <Transition name="fade" mode="out-in" appear>
     <component :is="currentView"></component>
   </Transition>
 </template>
@@ -48,14 +47,12 @@ export default defineComponent({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
   margin-top: 60px;
 }
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
 }
-
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
