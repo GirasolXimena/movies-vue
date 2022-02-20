@@ -1,23 +1,24 @@
 <script setup lang="ts">
 import store from '../store'
 import Card from '../components/Card.vue'
-import FavoritesList from '../components/FavoritesList.vue';
+import Button from '../components/Button.vue';
 </script>
 
 <template>
-<div class="view">
-  <h1>List</h1>
-  <div class="gallery">
-    <Card class="card" v-for="movie in store.movies" :key="movie.id" :movie="movie" />
+  <div class="view">
+    <h1>My Movies</h1>
+    <div class="gallery">
+      <Card class="card" v-for="movie in store.movies" :key="movie.id" :movie="movie" />
+    </div>
+    <h2>Favorites</h2>
+    <TransitionGroup name="list" class="favorites" tag="ol">
+      <li class="favorite" v-for="movie in store.favorites" :key="movie.id">
+        <Button :id="movie.id" :favorited="movie.favorited" />
+        <h5>{{ movie.title }}</h5>
+        <p>{{ movie.shortDescription }}</p>
+      </li>
+    </TransitionGroup>
   </div>
-  <ol>
-    <li class="favorites" v-for="movie in store.favorites">
-    <button @click="store.toggleFavorite(movie.id)" >&lt;/3</button>
-      <h5>{{movie.title}}</h5>
-      <p>{{movie.shortDescription}}</p>
-    </li>
-  </ol>
-</div>
 </template>
 
 <style scoped>
@@ -26,10 +27,12 @@ import FavoritesList from '../components/FavoritesList.vue';
   flex-wrap: wrap;
   justify-content: space-around;
 }
-.favorites {
-  margin: 2em 1em;
+.favorite {
   display: flex;
   align-items: baseline;
+}
+.favorite * {
+  margin: 0.5em 0.5em;
 }
 a {
   color: #42b983;
@@ -45,5 +48,14 @@ code {
   padding: 2px 4px;
   border-radius: 4px;
   color: #304455;
+}
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
 }
 </style>

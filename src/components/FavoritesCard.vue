@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import store from '../store'
+import Button from './Button.vue';
 defineProps<{
   id: number;
   favorited: boolean;
@@ -12,10 +13,7 @@ defineProps<{
 <template>
   <h3 v-html="title" />
   <div class="tile">
-    <button
-      class="toggle"
-      @click="store.toggleFavorite(id)"
-    >{{ favorited ? 'remove' : 'add' }} favorite</button>
+    <Button :id="id" :favorited="favorited" />
   </div>
   <img class="thumb" :src="img" :alt="imgAlt" />
 </template>
@@ -41,18 +39,5 @@ defineProps<{
   height: 100%;
   height: 202px;
   width: 100%;
-}
-.toggle {
-  position: absolute;
-  display: block;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, 50%);
-  background-color: rgba(16, 26, 150, 0.66);
-  border: 1px solid white;
-  border-radius: 0.25em;
-  color: white;
-  width: max-content;
-  padding: 0.5em;
 }
 </style>

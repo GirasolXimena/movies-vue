@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import store from '../store'
+import Button from './Button.vue';
 const props = defineProps<{ 
   movie: Movie;
    }>();
@@ -11,7 +11,7 @@ const props = defineProps<{
   <h1 class="title" v-html="movie.title"></h1>
   <!-- <img :src="movie.img" :alt="movie.imgAlt"> -->
   <p class="description">{{movie.shortDescription}}</p>
-  <button class="toggle" @click="store.toggleFavorite(props.movie.id)">{{movie.favorited ? 'unfavorite' : 'favorite'}}</button>
+  <Button :id="movie.id" :favorited="movie.favorited" />
 </div>
 </template>
 
