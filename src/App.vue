@@ -43,6 +43,21 @@ export default defineComponent({
 </template>
 
 <style>
+:root {
+  --primary : rgba(16, 26, 150, 1);
+  --secondary : rgba(16, 26, 150, 0.15);
+  --tertiary: rgba(255,255,255,1);
+  --link-color: #42b983;
+  --transition: all 0.5s ease;
+  --gradient: linear-gradient(
+    90deg,
+    var(--primary) 0%,
+    var(--secondary) 100%
+  )
+}
+a {
+  color: var(--link-color);
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -50,14 +65,19 @@ export default defineComponent({
   margin-top: 60px;
 }
 .fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
+.fade-leave-active,
+.favorites-enter-active,
+.favorites-leave-active {
+  transition: var(--transition);
 }
 .fade-enter-from,
-.fade-leave-to {
+.fade-leave-to,
+.favorites-enter-from,
+.favorites-leave-to {
   opacity: 0;
 }
-a {
-  color: #42b983;
+.favorites-enter-from,
+.favorites-leave-to {
+  transform: translateX(30px);
 }
 </style>

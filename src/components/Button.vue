@@ -14,11 +14,11 @@ defineProps<{
 .toggle {
   align-self: start;
   width: min-content;
-  color: white;
-  border: 1px solid white;
+  color: var(--tertiary);
+  border: 1px solid var(--tertiary);
   border-radius: 0.25em;
-  background-color: rgba(16,26,150,0.66);
-  transition: all 250ms ease;
+  background-color: var(--primary);
+  transition: var(--transition);
   padding: 0.5em 1em;
 }
 
@@ -31,8 +31,8 @@ defineProps<{
   margin-right: 0.5em;
 }
 .toggle:hover {
-  background-color: white;
-  color: rgba(16,26,150,1);
-  border-color: rgba(16,26,150,1);
+  background-color: var(--tertiary);
+  color: var(--primary);
+  border-color: var(--primary);
 }
 </style>

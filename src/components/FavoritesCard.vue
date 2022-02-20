@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import store from '../store'
 import Button from './Button.vue';
 defineProps<{
   id: number;
@@ -28,13 +27,9 @@ defineProps<{
   opacity: 1;
 }
 .tile {
-  transition: opacity 0.25s ease-in;
+  transition: var(--transition);
   position: absolute;
-  background: linear-gradient(
-    90deg,
-    rgba(16, 26, 150, 1) 0%,
-    rgba(16, 26, 150, 0.15) 100%
-  );
+  background: var(--gradient);
   opacity: 0;
   height: 100%;
   height: 202px;
