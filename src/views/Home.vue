@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import store from '../store'
+import store, { favorites } from '../store'
 import Card from '../components/Card.vue'
 import Button from '../components/Button.vue';
 </script>
@@ -12,7 +12,7 @@ import Button from '../components/Button.vue';
     </div>
     <h2>Favorites</h2>
     <TransitionGroup name="favorites" class="favorites" tag="ol">
-      <li class="favorite" v-for="movie in store.favorites" :key="movie.id">
+      <li class="favorite" v-for="movie in favorites" :key="movie.id">
         <Button :id="movie.id" :favorited="movie.favorited" />
         <h3>{{ movie.title }}</h3>
         <p>{{ movie.shortDescription }}</p>
