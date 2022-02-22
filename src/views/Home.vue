@@ -14,7 +14,7 @@ import Button from '../components/Button.vue';
     <TransitionGroup name="favorites" class="favorites" tag="ol">
       <li class="favorite" v-for="movie in store.favorites" :key="movie.id">
         <Button :id="movie.id" :favorited="movie.favorited" />
-        <h3>{{ movie.title }}</h3>
+        <h3 v-html="movie.title" />
         <p>{{ movie.shortDescription }}</p>
       </li>
     </TransitionGroup>
